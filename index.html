@@ -1,0 +1,1998 @@
+
+📁 FICHIER 1 : index.html
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TERRAX - The Terra Node</title>
+    
+    <!-- ===== ICÔNES TERRA NODE ===== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230A1628'/><circle cx='256' cy='256' r='200' stroke='%23FFFFFF' stroke-width='2' opacity='0.08'/><rect x='96' y='112' width='320' height='20' rx='10' fill='%23FFFFFF'/><rect x='244' y='112' width='24' height='180' rx='12' fill='%23FFFFFF'/><path d='M244 292 L184 370 L204 370 L256 310' fill='%23FFFFFF'/><path d='M268 292 L328 370 L308 370 L256 310' fill='%23FFFFFF'/><circle cx='256' cy='256' r='24' fill='%230066FF' opacity='0.4'/><circle cx='256' cy='256' r='140' stroke='%230066FF' stroke-width='1.5' opacity='0.15' stroke-dasharray='8 12'/></svg>">
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230A1628'/><rect x='96' y='112' width='320' height='20' rx='10' fill='%23FFFFFF'/><rect x='244' y='112' width='24' height='180' rx='12' fill='%23FFFFFF'/><path d='M244 292 L184 370 L204 370 L256 310' fill='%23FFFFFF'/><path d='M268 292 L328 370 L308 370 L256 310' fill='%23FFFFFF'/><circle cx='256' cy='256' r='24' fill='%230066FF' opacity='0.4'/></svg>">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230A1628'/><rect x='96' y='112' width='320' height='20' rx='10' fill='%23FFFFFF'/><rect x='244' y='112' width='24' height='180' rx='12' fill='%23FFFFFF'/><path d='M244 292 L184 370 L204 370 L256 310' fill='%23FFFFFF'/><path d='M268 292 L328 370 L308 370 L256 310' fill='%23FFFFFF'/></svg>">
+
+    <!-- ===== CONFIGURATION APP ===== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TERRAX">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="TERRAX">
+    <meta name="theme-color" content="#0A1628">
+    
+    <!-- ===== STYLES ===== -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- ============ HOME SCREEN ============ -->
+        <div id="homeScreen" class="screen active">
+            <div class="status-bar">
+                <span>9:41</span>
+                <div class="status-icons">
+                    <span>📶</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                </div>
+            </div>
+
+            <!-- ===== HEADER AVEC TERRA NODE ===== -->
+            <div class="app-header">
+                <div class="logo-terrax">
+                    <svg width="200" height="56" viewBox="0 0 200 56" fill="none">
+                        <!-- TERRA NODE Symbol -->
+                        <g transform="translate(0, 0)">
+                            <circle cx="28" cy="28" r="24" stroke="#0A1628" stroke-width="1.2" opacity="0.12"/>
+                            <rect x="6" y="14" width="44" height="4" rx="2" fill="#0A1628"/>
+                            <rect x="24" y="14" width="8" height="22" rx="4" fill="#0A1628"/>
+                            <path d="M24 36 L17 46 L21 46 L28 38" fill="#0A1628"/>
+                            <path d="M32 36 L39 46 L35 46 L28 38" fill="#0A1628"/>
+                            <circle cx="28" cy="28" r="3" fill="#0066FF" opacity="0.5"/>
+                            <circle cx="28" cy="28" r="16" stroke="#0066FF" stroke-width="0.5" opacity="0.15" stroke-dasharray="3 4"/>
+                        </g>
+                        
+                        <!-- Texte TERRAX -->
+                        <g transform="translate(68, 14)">
+                            <text font-family="Inter, sans-serif" font-weight="800" font-size="26" letter-spacing="5" fill="#0A1628">
+                                <tspan>TERRA</tspan>
+                                <tspan fill="#0066FF">X</tspan>
+                            </text>
+                            <text x="0" y="26" font-family="Inter, sans-serif" font-weight="400" font-size="10" letter-spacing="6" fill="#6B7280" opacity="0.6">
+                                THE TERRA NODE
+                            </text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="header-actions">
+                    <span class="notification-bell">🔔</span>
+                    <span class="user-avatar">👤</span>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="greeting-section">
+                    <h1>Bonjour 👋</h1>
+                    <p class="subtitle">Que souhaitez-vous livrer aujourd'hui ?</p>
+                </div>
+
+                <div class="search-bar" onclick="showInput()">
+                    <span class="search-icon">🔍</span>
+                    <span class="search-text">Que voulez-vous envoyer ?</span>
+                    <span class="mic-icon" onclick="event.stopPropagation(); startVoice();">🎤</span>
+                </div>
+
+                <div class="delivery-types">
+                    <div class="delivery-card" onclick="useExample('Livrer un colis')">
+                        <span class="delivery-icon">📦</span>
+                        <span class="delivery-name">Colis</span>
+                    </div>
+                    <div class="delivery-card" onclick="useExample('Livrer de la nourriture')">
+                        <span class="delivery-icon">🍕</span>
+                        <span class="delivery-name">Nourriture</span>
+                    </div>
+                    <div class="delivery-card" onclick="useExample('Livrer des documents')">
+                        <span class="delivery-icon">📄</span>
+                        <span class="delivery-name">Documents</span>
+                    </div>
+                    <div class="delivery-card" onclick="useExample('Acheter un produit')">
+                        <span class="delivery-icon">🛍️</span>
+                        <span class="delivery-name">Shopping</span>
+                    </div>
+                </div>
+
+                <!-- ===== BANNIÈRE TERRA NODE ===== -->
+                <div class="terra-node-banner">
+                    <div class="node-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40">
+                            <circle cx="20" cy="20" r="16" stroke="#FFFFFF" stroke-width="1" opacity="0.2"/>
+                            <rect x="6" y="10" width="28" height="3" rx="1.5" fill="#FFFFFF"/>
+                            <rect x="18" y="10" width="4" height="16" rx="2" fill="#FFFFFF"/>
+                            <path d="M18 26 L13 33 L15.5 33 L20 27" fill="#FFFFFF"/>
+                            <path d="M22 26 L27 33 L24.5 33 L20 27" fill="#FFFFFF"/>
+                            <circle cx="20" cy="20" r="2" fill="#00C853" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>TERRA NODE</strong>
+                        <p>Le plus grand réseau logistique intelligent d'Afrique</p>
+                    </div>
+                    <span class="node-status">● Actif</span>
+                </div>
+
+                <div class="recent-missions">
+                    <div class="section-header">
+                        <h3>📋 Missions récentes</h3>
+                        <span class="see-all" onclick="showHistory()">Voir tout</span>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-icon">📦</div>
+                        <div class="mission-info">
+                            <h4>Colis pour Douala</h4>
+                            <p>Il y a 2h • Livré ✅</p>
+                        </div>
+                        <span class="mission-status completed">Terminé</span>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-icon">🍕</div>
+                        <div class="mission-info">
+                            <h4>Pizza à livrer</h4>
+                            <p>Il y a 1h • En cours 🔄</p>
+                        </div>
+                        <span class="mission-status in-progress">En cours</span>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-icon">📄</div>
+                        <div class="mission-info">
+                            <h4>Documents juridiques</h4>
+                            <p>Aujourd'hui • En attente ⏳</p>
+                        </div>
+                        <span class="mission-status pending">En attente</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-nav">
+                <button class="nav-btn active" onclick="goHome()">🏠</button>
+                <button class="nav-btn" onclick="showHistory()">📋</button>
+                <button class="nav-btn" onclick="showPartners()">🤝</button>
+                <button class="nav-btn" onclick="showProfile()">👤</button>
+            </div>
+        </div>
+
+        <!-- ============ INPUT SCREEN ============ -->
+        <div id="inputScreen" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goHome()">←</button>
+                <div class="logo-mini">
+                    <svg width="100" height="24" viewBox="0 0 100 24">
+                        <text font-family="Inter, sans-serif" font-weight="800" font-size="20" letter-spacing="3">
+                            <tspan fill="#0A1628">TERRA</tspan>
+                            <tspan fill="#0066FF">X</tspan>
+                        </text>
+                    </svg>
+                </div>
+                <span class="header-action" onclick="clearInput()">✕</span>
+            </div>
+            <div class="main-content">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea id="missionInput" placeholder="Décrivez ce que vous voulez livrer..." rows="5"></textarea>
+                        <div class="input-actions">
+                            <button onclick="startVoice()">🎤</button>
+                            <button onclick="takePhoto()">📷</button>
+                            <button onclick="useLocation()">📍</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-address">
+                        <p>📍 Adresses fréquentes :</p>
+                        <div class="address-chip" onclick="setAddress('Douala, Cameroun')">Douala</div>
+                        <div class="address-chip" onclick="setAddress('Yaoundé, Cameroun')">Yaoundé</div>
+                        <div class="address-chip" onclick="setAddress('Abidjan, Côte d\'Ivoire')">Abidjan</div>
+                        <div class="address-chip" onclick="setAddress('Dakar, Sénégal')">Dakar</div>
+                    </div>
+
+                    <button class="send-btn" onclick="processMission()">
+                        <span>🚀</span> Commander maintenant
+                    </button>
+                </div>
+
+                <div class="delivery-options">
+                    <div class="option-card selected">
+                        <span>📦 Standard</span>
+                        <small>15-30 min</small>
+                    </div>
+                    <div class="option-card">
+                        <span>⚡ Express</span>
+                        <small>5-10 min</small>
+                    </div>
+                    <div class="option-card">
+                        <span>🔒 Assuré</span>
+                        <small>+2 000 FCFA</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ LOADING SCREEN ============ -->
+        <div id="loadingScreen" class="screen">
+            <div class="loading-content">
+                <div class="ai-thinking">
+                    <div class="ai-avatar">
+                        <div class="ai-pulse"></div>
+                        <span class="ai-icon">🧠</span>
+                    </div>
+                    <h2>TerraMind analyse...</h2>
+                    <p class="loading-sub">Activation du réseau TERRA NODE</p>
+                    <div class="loading-spinner"></div>
+                    <div class="thinking-steps">
+                        <p id="step1" class="step active">🔍 Compréhension de la demande</p>
+                        <p id="step2" class="step">📍 Localisation du partenaire</p>
+                        <p id="step3" class="step">💰 Calcul du prix</p>
+                        <p id="step4" class="step">✅ Confirmation</p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ CONFIRMATION SCREEN ============ -->
+        <div id="confirmationScreen" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goHome()">←</button>
+                <span class="logo-text">Mission en cours</span>
+                <span class="badge live">● LIVE</span>
+            </div>
+            <div class="main-content">
+                <div class="confirmation-card">
+                    <div class="success-animation">
+                        <div class="checkmark">✅</div>
+                    </div>
+                    <h2>Mission confirmée !</h2>
+                    <p class="confirmation-sub">Le réseau TERRA NODE est activé</p>
+
+                    <div class="tracking-map">
+                        <div class="map-header">
+                            <span>📍 Suivi en direct</span>
+                            <span class="live-badge">● LIVE</span>
+                        </div>
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <div class="map-pin start">📍</div>
+                                <div class="route-line">
+                                    <div class="route-progress" id="routeProgress"></div>
+                                    <div class="car-marker" id="carMarker">🚗</div>
+                                </div>
+                                <div class="map-pin end">📍</div>
+                            </div>
+                        </div>
+                        <div class="map-status">
+                            <span>Partenaire en route</span>
+                            <span class="eta" id="etaUpdate">Arrivée dans 12 min</span>
+                        </div>
+                    </div>
+
+                    <div class="mission-details">
+                        <div class="detail-item">
+                            <span class="label">📝 Mission</span>
+                            <span class="value" id="missionText">Chargement...</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">👤 Partenaire</span>
+                            <span class="value" id="partnerName">Jean-Marc (⭐4.8)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📍 Distance</span>
+                            <span class="value" id="distance">2.4 km</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">⏱️ Temps</span>
+                            <span class="value" id="estimatedTime">15-20 min</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">💰 Prix</span>
+                            <span class="value" id="price">2 500 FCFA</span>
+                        </div>
+                    </div>
+
+                    <div class="confirmation-actions">
+                        <button class="track-btn" onclick="startTracking()">
+                            <span>📍</span> Suivre en direct
+                        </button>
+                        <button class="chat-btn" onclick="chatPartner()">
+                            <span>💬</span> Chat
+                        </button>
+                        <button class="confirm-btn" onclick="goHome()">
+                            🏠 Retour
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ HISTORY SCREEN ============ -->
+        <div id="historyScreen" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goHome()">←</button>
+                <span class="logo-text">Historique</span>
+                <span class="badge">12 missions</span>
+            </div>
+            <div class="main-content">
+                <div class="history-filters">
+                    <button class="filter-btn active">Toutes</button>
+                    <button class="filter-btn">En cours</button>
+                    <button class="filter-btn">Terminées</button>
+                </div>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-icon">📦</div>
+                        <div class="history-info">
+                            <h4>Livraison colis Douala</h4>
+                            <p>Aujourd'hui, 14:30</p>
+                            <span class="status completed">✅ Terminé</span>
+                        </div>
+                        <span class="history-price">2 500 FCFA</span>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">🍕</div>
+                        <div class="history-info">
+                            <h4>Pizza livrée</h4>
+                            <p>Aujourd'hui, 12:15</p>
+                            <span class="status completed">✅ Terminé</span>
+                        </div>
+                        <span class="history-price">1 500 FCFA</span>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-icon">📄</div>
+                        <div class="history-info">
+                            <h4>Documents juridiques</h4>
+                            <p>Aujourd'hui, 10:00</p>
+                            <span class="status in-progress">🔄 En cours</span>
+                        </div>
+                        <span class="history-price">3 000 FCFA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ PARTNERS SCREEN ============ -->
+        <div id="partnersScreen" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goHome()">←</button>
+                <span class="logo-text">TerraPartners</span>
+                <span class="badge">8 disponibles</span>
+            </div>
+            <div class="main-content">
+                <div class="partner-search">
+                    <input type="text" placeholder="🔍 Chercher un partenaire..." class="search-input">
+                </div>
+                <div class="partner-list">
+                    <div class="partner-card">
+                        <div class="partner-avatar">👨</div>
+                        <div class="partner-info">
+                            <h4>Jean-Marc</h4>
+                            <p>⭐ 4.8 • 234 missions</p>
+                            <span class="partner-status available">✅ Disponible</span>
+                        </div>
+                        <button class="partner-select" onclick="selectPartner('Jean-Marc')">Choisir</button>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-avatar">👩</div>
+                        <div class="partner-info">
+                            <h4>Sarah</h4>
+                            <p>⭐ 4.9 • 187 missions</p>
+                            <span class="partner-status available">✅ Disponible</span>
+                        </div>
+                        <button class="partner-select" onclick="selectPartner('Sarah')">Choisir</button>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-avatar">👨</div>
+                        <div class="partner-info">
+                            <h4>David</h4>
+                            <p>⭐ 4.7 • 156 missions</p>
+                            <span class="partner-status busy">⏳ Occupé</span>
+                        </div>
+                        <button class="partner-select disabled">Indisponible</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ PROFILE SCREEN ============ -->
+        <div id="profileScreen" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="goHome()">←</button>
+                <span class="logo-text">Profil</span>
+                <span class="badge premium">⭐ Premium</span>
+            </div>
+            <div class="main-content">
+                <div class="profile-header">
+                    <div class="profile-avatar-large">👤</div>
+                    <h2>Utilisateur</h2>
+                    <p>Membre depuis 2025</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span>28</span>
+                            <span>Missions</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span>4.9</span>
+                            <span>Note</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span>98%</span>
+                            <span>Taux succès</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-menu">
+                    <div class="menu-item">
+                        <span>👛 TerraWallet</span>
+                        <span>12 500 FCFA</span>
+                    </div>
+                    <div class="menu-item">
+                        <span>🏆 TerraScore</span>
+                        <span>284 pts</span>
+                    </div>
+                    <div class="menu-item">
+                        <span>🔔 Notifications</span>
+                        <span>3</span>
+                    </div>
+                    <div class="menu-item">
+                        <span>⚙️ Paramètres</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+---
+
+🎨 FICHIER 2 : style.css
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0066FF;
+    --primary-dark: #0055DD;
+    --secondary: #00C853;
+    --accent: #FF6B00;
+    --dark: #0A1628;
+    --bg: #F5F7FA;
+    --card-bg: #FFFFFF;
+    --text-primary: #1A1A2E;
+    --text-secondary: #6B7280;
+    --border: #E5E7EB;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 32px rgba(0, 102, 255, 0.15);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#app {
+    width: 100%;
+    max-width: 430px;
+    height: 932px;
+    background: var(--card-bg);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.screen {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    animation: fadeSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ STATUS BAR ============ */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 24px 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: white;
+}
+
+.status-icons {
+    display: flex;
+    gap: 4px;
+}
+
+/* ============ HEADER ============ */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 24px 12px;
+    background: white;
+}
+
+.logo-terrax {
+    display: flex;
+    align-items: center;
+}
+
+.header-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.notification-bell, .user-avatar {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.notification-bell {
+    position: relative;
+}
+
+.notification-bell::after {
+    content: '3';
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    font-size: 10px;
+    background: #FF3B30;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-weight: 700;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px 16px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+}
+
+.badge {
+    font-size: 12px;
+    background: var(--secondary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge.live {
+    background: #FF3B30;
+    animation: blink 1s infinite;
+}
+
+.badge.premium {
+    background: linear-gradient(135deg, #FFD700, #FF6B00);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.header-action {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.logo-mini svg {
+    height: 24px;
+}
+
+/* ============ MAIN CONTENT ============ */
+.main-content {
+    flex: 1;
+    padding: 16px 24px 20px;
+    overflow-y: auto;
+    background: var(--bg);
+}
+
+/* ============ GREETING ============ */
+.greeting-section h1 {
+    font-size: 34px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* ============ SEARCH BAR ============ */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+
+.search-bar:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+}
+
+.search-icon {
+    font-size: 18px;
+}
+
+.search-text {
+    flex: 1;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.mic-icon {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.mic-icon:hover {
+    background: #F0F7FF;
+}
+
+/* ============ DELIVERY TYPES ============ */
+.delivery-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.delivery-card {
+    background: white;
+    padding: 14px 8px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.delivery-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.delivery-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.delivery-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ===== TERRA NODE BANNER ===== */
+.terra-node-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, #0A1628, #1A2A4A);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.terra-node-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.1), transparent);
+}
+
+.terra-node-banner .node-icon {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.terra-node-banner div {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.terra-node-banner strong {
+    display: block;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.terra-node-banner p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+.node-status {
+    font-size: 10px;
+    font-weight: 600;
+    color: #00C853;
+    background: rgba(0, 200, 83, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 200, 83, 0.2);
+    position: relative;
+    z-index: 1;
+    animation: pulse-status 2s infinite;
+}
+
+@keyframes pulse-status {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ============ RECENT MISSIONS ============ */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-header h3 {
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.see-all {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mission-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+}
+
+.mission-item:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.mission-icon {
+    font-size: 24px;
+}
+
+.mission-info {
+    flex: 1;
+}
+
+.mission-info h4 {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.mission-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.mission-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.mission-status.completed {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.mission-status.in-progress {
+    background: #FFF3E0;
+    color: #E65100;
+}
+
+.mission-status.pending {
+    background: #FFF8E1;
+    color: #F57F17;
+}
+
+/* ============ BOTTOM NAV ============ */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 24px 20px;
+    border-top: 1px solid var(--border);
+    background: white;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    padding: 8px 16px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.3s;
+    border-radius: 12px;
+}
+
+.nav-btn.active {
+    opacity: 1;
+    background: #F0F7FF;
+}
+
+.nav-btn:hover {
+    opacity: 0.8;
+}
+
+/* ============ INPUT SCREEN ============ */
+.input-container {
+    margin-top: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+#missionInput {
+    width: 100%;
+    padding: 16px;
+    padding-bottom: 60px;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 140px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s;
+    background: white;
+}
+
+#missionInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+}
+
+.input-actions {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.input-actions button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg);
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.input-actions button:hover {
+    background: var(--primary);
+    transform: scale(1.1);
+}
+
+.quick-address {
+    margin: 16px 0;
+}
+
+.quick-address p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.address-chip {
+    display: inline-block;
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    font-size: 13px;
+    margin: 4px 6px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.address-chip:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.send-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.send-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
+}
+
+.send-btn:active {
+    transform: scale(0.96);
+}
+
+.delivery-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0 20px;
+}
+
+.option-card {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.option-card.selected {
+    border-color: var(--primary);
+    background: #F0F7FF;
+}
+
+.option-card:hover {
+    border-color: var(--primary);
+}
+
+.option-card span {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.option-card small {
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+/* ============ LOADING ============ */
+.loading-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #F0F7FF, white);
+    padding: 24px;
+}
+
+.ai-thinking {
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+}
+
+.ai-avatar {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+}
+
+.ai-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    animation: pulse-ring 1.5s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+.ai-icon {
+    font-size: 56px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.ai-thinking h2 {
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.loading-sub {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 16px auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.thinking-steps {
+    margin: 16px 0;
+    text-align: left;
+}
+
+.step {
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    background: white;
+    color: var(--text-secondary);
+    font-size: 14px;
+    transition: all 0.3s;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+    background: #F0F7FF;
+    color: var(--text-primary);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    transition: width 0.5s;
+}
+
+/* ============ CONFIRMATION ============ */
+.confirmation-card {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+}
+
+.success-animation {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.checkmark {
+    font-size: 48px;
+    animation: bounceIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.confirmation-card h2 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.confirmation-sub {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.tracking-map {
+    background: var(--bg);
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.live-badge {
+    color: #FF3B30;
+    font-weight: 700;
+    animation: blink 1s infinite;
+}
+
+.map-container {
+    position: relative;
+    height: 120px;
+    background: linear-gradient(135deg, #E8F0FE, #D4E4FF);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.map-placeholder {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.map-pin {
+    font-size: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.route-line {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.5);
+    position: relative;
+    margin: 0 4px;
+    border-radius: 4px;
+    overflow: visible;
+}
+
+.route-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+    transition: width 0.5s;
+}
+
+.car-marker {
+    position: absolute;
+    top: -16px;
+    left: 0%;
+    font-size: 24px;
+    transition: left 0.5s;
+    z-index: 3;
+}
+
+.map-status {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.eta {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.mission-details {
+    margin: 16px 0;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.detail-item .label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.detail-item .value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.confirmation-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.track-btn, .chat-btn, .confirm-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.track-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.track-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.02);
+}
+
+.chat-btn {
+    background: #F0F7FF;
+    color: var(--primary);
+}
+
+.chat-btn:hover {
+    background: #E0EDFF;
+}
+
+.confirm-btn {
+    background: var(--border);
+    color: var(--text-primary);
+}
+
+.confirm-btn:hover {
+    background: #D1D5DB;
+}
+
+/* ============ HISTORY ============ */
+.history-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.history-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 12px;
+}
+
+.history-info {
+    flex: 1;
+}
+
+.history-info h4 {
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.history-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.status {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status.completed { color: var(--secondary); }
+.status.in-progress { color: var(--accent); }
+
+.history-price {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ============ PARTNERS ============ */
+.partner-search {
+    margin-bottom: 16px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.partner-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.partner-card:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.partner-avatar {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border-radius: 50%;
+}
+
+.partner-info {
+    flex: 1;
+}
+
+.partner-info h4 {
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+.partner-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.partner-status {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.partner-status.available { color: var(--secondary); }
+.partner-status.busy { color: var(--accent); }
+
+.partner-select {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.partner-select:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.partner-select.disabled {
+    background: var(--border);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+/* ============ PROFILE ============ */
+.profile-header {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+}
+
+.profile-avatar-large {
+    font-size: 56px;
+    margin-bottom: 8px;
+}
+
+.profile-header h2 {
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.profile-header p {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 14px;
+}
+
+.profile-stat {
+    text-align: center;
+}
+
+.profile-stat span:first-child {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.profile-stat span:last-child {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.menu-item:hover {
+    background: var(--bg);
+    border-color: var(--primary);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 430px) {
+    body {
+        padding: 0;
+    }
+    #app {
+        border-radius: 0;
+        height: 100vh;
+        max-width: 100%;
+    }
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+```
+
+---
+
+📱 FICHIER 3 : script.js
+
+```javascript
+// ============ BASE DE DONNÉES ============
+const partners = [
+    { name: 'Jean-Marc', rating: 4.8, missions: 234, location: 'Douala', available: true, avatar: '👨' },
+    { name: 'Sarah', rating: 4.9, missions: 187, location: 'Yaoundé', available: true, avatar: '👩' },
+    { name: 'David', rating: 4.7, missions: 156, location: 'Douala', available: false, avatar: '👨' },
+    { name: 'Marie', rating: 4.6, missions: 143, location: 'Yaoundé', available: true, avatar: '👩' }
+];
+
+const prices = {
+    'pickup': 2500,
+    'delivery': 3500,
+    'purchase': 4000,
+    'default': 3000
+};
+
+const times = {
+    'pickup': '10-15 min',
+    'delivery': '20-30 min',
+    'purchase': '15-25 min',
+    'default': '15-20 min'
+};
+
+let selectedPartner = null;
+
+// ============ NAVIGATION ============
+function showScreen(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
+}
+
+function goHome() {
+    showScreen('homeScreen');
+    updateNav('homeScreen');
+}
+
+function showInput() {
+    showScreen('inputScreen');
+    setTimeout(() => document.getElementById('missionInput').focus(), 300);
+}
+
+function showHistory() {
+    showScreen('historyScreen');
+    updateNav('historyScreen');
+}
+
+function showPartners() {
+    showScreen('partnersScreen');
+    updateNav('partnersScreen');
+}
+
+function showProfile() {
+    showScreen('profileScreen');
+    updateNav('profileScreen');
+}
+
+function updateNav(screen) {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    const map = {
+        'homeScreen': 0,
+        'historyScreen': 1,
+        'partnersScreen': 2,
+        'profileScreen': 3
+    };
+    const index = map[screen] || 0;
+    document.querySelectorAll('.nav-btn')[index]?.classList.add('active');
+}
+
+function clearInput() {
+    document.getElementById('missionInput').value = '';
+}
+
+// ============ VOICE RECOGNITION ============
+function startVoice() {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert('🎤 La reconnaissance vocale n\'est pas supportée sur ce navigateur.\nUtilisez l\'option Écrire.');
+        showInput();
+        return;
+    }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'fr-FR';
+    recognition.continuous = false;
+    recognition.interimResults = true;
+
+    const micIcon = document.querySelector('.mic-icon');
+    const originalText = micIcon.textContent;
+    micIcon.textContent = '⏺️';
+    micIcon.style.color = '#FF3B30';
+
+    recognition.onresult = function(event) {
+        const text = event.results[0][0].transcript;
+        document.getElementById('missionInput').value = text;
+        
+        if (event.results[0].isFinal) {
+            recognition.stop();
+            setTimeout(() => processMission(), 300);
+        }
+    };
+
+    recognition.onerror = function() {
+        alert('🎤 Erreur de reconnaissance. Veuillez réessayer.');
+        micIcon.textContent = originalText;
+        micIcon.style.color = '';
+    };
+
+    recognition.onend = function() {
+        micIcon.textContent = originalText;
+        micIcon.style.color = '';
+        showInput();
+    };
+
+    recognition.start();
+}
+
+// ============ PHOTO ============
+function takePhoto() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        alert('📷 Appareil photo non disponible.\nUtilisez l\'option Écrire.');
+        return;
+    }
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            alert('📸 Photo prise !\nTerraMind analyse l\'image...');
+            stream.getTracks().forEach(t => t.stop());
+            
+            setTimeout(() => {
+                const missionText = 'Livrer un colis identifié par photo';
+                document.getElementById('missionInput').value = missionText;
+                setTimeout(() => processMission(), 500);
+            }, 1000);
+        })
+        .catch(function() {
+            alert('📷 Accès à la caméra refusé.');
+        });
+}
+
+// ============ LOCATION ============
+function useLocation() {
+    if (!navigator.geolocation) {
+        alert('📍 Localisation non disponible');
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(
+        function(pos) {
+            alert('📍 Position détectée !\nLat: ' + pos.coords.latitude.toFixed(4) + ', Lng: ' + pos.coords.longitude.toFixed(4));
+        },
+        function() {
+            alert('📍 Localisation refusée. Utilisez l\'adresse manuelle.');
+        }
+    );
+}
+
+function setAddress(address) {
+    const input = document.getElementById('missionInput');
+    if (input.value.trim()) {
+        input.value += ' à ' + address;
+    } else {
+        input.value = 'Livrer à ' + address;
+    }
+    input.focus();
+}
+
+// ============ USE EXAMPLE ============
+function useExample(text) {
+    document.getElementById('missionInput').value = text;
+    showScreen('inputScreen');
+    setTimeout(() => processMission(), 500);
+}
+
+// ============ SELECT PARTNER ============
+function selectPartner(name) {
+    selectedPartner = partners.find(p => p.name === name);
+    alert('✅ ' + name + ' sélectionné comme partenaire !');
+}
+
+// ============ PROCESS MISSION ============
+function processMission() {
+    const text = document.getElementById('missionInput').value.trim();
+    if (!text) {
+        alert('Veuillez décrire votre mission.');
+        return;
+    }
+
+    showScreen('loadingScreen');
+    document.getElementById('progressFill').style.width = '0%';
+
+    document.querySelectorAll('.step').forEach(s => {
+        s.classList.remove('active');
+    });
+
+    const types = {
+        'récupérer': 'pickup', 'prendre': 'pickup', 'chercher': 'pickup',
+        'envoyer': 'delivery', 'livrer': 'delivery', 'apporter': 'delivery',
+        'acheter': 'purchase', 'commander': 'purchase', 'achat': 'purchase'
+    };
+
+    let type = 'default';
+    for (const [key, value] of Object.entries(types)) {
+        if (text.toLowerCase().includes(key)) {
+            type = value;
+            break;
+        }
+    }
+
+    const steps = [
+        { id: 'step1', text: '✅ Compréhension de la demande', progress: 25 },
+        { id: 'step2', text: '✅ Localisation du partenaire', progress: 50 },
+        { id: 'step3', text: '✅ Calcul du prix', progress: 75 },
+        { id: 'step4', text: '✅ Confirmation', progress: 100 }
+    ];
+
+    let stepIndex = 0;
+    const interval = setInterval(() => {
+        if (stepIndex < steps.length) {
+            const step = steps[stepIndex];
+            const el = document.getElementById(step.id);
+            el.textContent = step.text;
+            el.classList.add('active');
+            document.getElementById('progressFill').style.width = step.progress + '%';
+            stepIndex++;
+        } else {
+            clearInterval(interval);
+            generateMission(text, type);
+        }
+    }, 600);
+}
+
+// ============ GENERATE MISSION ============
+function generateMission(text, type) {
+    const available = partners.filter(p => p.available);
+    let partner;
+    
+    if (selectedPartner && selectedPartner.available) {
+        partner = selectedPartner;
+    } else {
+        partner = available.length > 0 ? 
+            available[Math.floor(Math.random() * available.length)] : 
+            partners[0];
+    }
+
+    const price = prices[type] || prices.default;
+    const time = times[type] || times.default;
+    const distance = (Math.random() * 4 + 0.5).toFixed(1);
+
+    document.getElementById('missionText').textContent = text;
+    document.getElementById('partnerName').textContent = `${partner.avatar} ${partner.name} (⭐${partner.rating})`;
+    document.getElementById('distance').textContent = `${distance} km`;
+    document.getElementById('estimatedTime').textContent = time;
+    document.getElementById('price').textContent = `${price} FCFA`;
+
+    let progress = 0;
+    const carMarker = document.getElementById('carMarker');
+    const routeInterval = setInterval(() => {
+        progress += Math.random() * 3 + 1;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(routeInterval);
+        }
+        document.getElementById('routeProgress').style.width = progress + '%';
+        if (carMarker) {
+            carMarker.style.left = progress + '%';
+        }
+        document.getElementById('etaUpdate').textContent = 
+            progress < 30 ? 'Partenaire en route' :
+            progress < 70 ? 'Arrivée dans ' + Math.round((100 - progress) / 5) + ' min' :
+            'Bientôt arrivé !';
+    }, 100);
+
+    setTimeout(() => {
+        showScreen('confirmationScreen');
+    }, 300);
+}
+
+// ============ TRACKING ============
+function startTracking() {
+    const btn = document.querySelector('.track-btn');
+    btn.innerHTML = '<span>📍</span> Suivi en direct...';
+    btn.style.background = '#00C853';
+
+    let progress = parseInt(document.getElementById('routeProgress').style.width) || 0;
+    const carMarker = document.getElementById('carMarker');
+    
+    const interval = setInterval(() => {
+        progress += Math.random() * 2 + 1;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            btn.innerHTML = '<span>✅</span> Livré !';
+            btn.style.background = '#10B981';
+            document.getElementById('etaUpdate').textContent = '🚪 Livré !';
+            setTimeout(() => {
+                btn.innerHTML = '<span>📍</span> Suivre en direct';
+                btn.style.background = '#0066FF';
+            }, 3000);
+        }
+        document.getElementById('routeProgress').style.width = progress + '%';
+        if (carMarker) {
+            carMarker.style.left = progress + '%';
+        }
+        document.getElementById('etaUpdate').textContent = 
+            progress < 30 ? 'Partenaire en route' :
+            progress < 70 ? 'Arrivée dans ' + Math.round((100 - progress) / 5) + ' min' :
+            progress < 90 ? 'Bientôt arrivé !' :
+            '🚪 Livraison en cours...';
+    }, 300);
+}
+
+// ============ CHAT ============
+function chatPartner() {
+    const partnerName = document.getElementById('partnerName')?.textContent?.split('(')[0]?.trim() || 'Jean-Marc';
+    alert('💬 Chat avec ' + partnerName + '\n\n' + partnerName + ': "Bonjour, j\'arrive dans 10 min"\nVous: "Parfait, merci !"');
+}
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded', function() {
+    showScreen('homeScreen');
+
+    document.getElementById('missionInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            processMission();
+        }
+    });
+
+    document.querySelector('.search-input')?.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase();
+        document.querySelectorAll('.partner-card').forEach(card => {
+            const name = card.querySelector('h4')?.textContent?.toLowerCase() || '';
+            card.style.display = name.includes(query) ? 'flex' : 'none';
+        });
+    });
+
+    document.querySelectorAll('.option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    console.log('🚀 TERRAX - The Terra Node');
+    console.log('🏛️ Logo TERRA NODE intégré');
+    console.log('📱 Version complète prête');
+});
+```
+
+---
+
+🚀 DÉPLOIEMENT
+
+1. Crée un dossier terrax-node
+2. Copie les 3 fichiers ci-dessus
+3. Va sur app.netlify.com/drop
+4. Glisse le dossier
+5. Lien prêt en 10 secondes ✅
+
+---
+
+Le code complet est prêt. Copie-colle et déploie ! 🏛️🚀
